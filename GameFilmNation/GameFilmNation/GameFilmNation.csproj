@@ -66,19 +66,19 @@
     <Compile Include="frmMainMenu.Designer.cs">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRegisterMember.cs">
+    <Compile Include="frmRegisterAccount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRegisterMember.Designer.cs">
-      <DependentUpon>frmRegisterMember.cs</DependentUpon>
+    <Compile Include="frmRegisterAccount.Designer.cs">
+      <DependentUpon>frmRegisterAccount.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMainMenu.resx">
       <DependentUpon>frmMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegisterMember.resx">
-      <DependentUpon>frmRegisterMember.cs</DependentUpon>
+    <EmbeddedResource Include="frmRegisterAccount.resx">
+      <DependentUpon>frmRegisterAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -169,15 +169,44 @@ namespace GameFilmNation
             myConn.Open();
 
             //Define SQL query to INSERT DVD record
-            String strSQL = "INSERT INTO Members VALUES(" + this.accountId.ToString() + ",'" + this.name + "','" + this.type + "','" + this.DoB + "','" + this.password + "','" + this.status + "','" + this.email + "','" + this.username + "','" + this.memberlevel + "','" + this.savedSysTime + "')";
+            String strSQL = "INSERT INTO Account VALUES(" + this.accountId.ToString() + ",'" + this.name + "','" + this.type + "','" + this.DoB + "','" + this.password + "','" + this.status + "','" + this.email + "','" + this.username + "','" + this.memberlevel + "','" + this.savedSysTime + "')";
 
             //Execute the command
             OracleCommand cmd = new OracleCommand(strSQL, myConn);
-            cmd.ExecuteNonQuery();
+            
+                cmd.ExecuteNonQuery();
+         
+            
 
             //close DB connection
             myConn.Close();
 
         }
+        public static int nextAccountId()
+        {
+            int nextAccountId;
+
+            //Connect to Database
+            OracleConnection myConn = new OracleConnection(DBConnect.oradb);
+            myConn.Open();
+
+            String strSQL = "SELECT MAX(AccountId) FROM Account";
+
+            OracleCommand cmd = new OracleCommand(strSQL, myConn);
+
+            //execute the SQL query and put result in OracleDataReader object
+            OracleDataReader dr = cmd.ExecuteReader();
+
+            dr.Read();
+
+            if (dr.IsDBNull(0))
+                nextAccountId = 1;
+            else
+                nextAccountId = Convert.ToInt16(dr.GetValue(0)) + 1;
+
+            myConn.Close();
+            return nextAccountId;
+        }
+
     }
 }
